@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Mortgage Calculator</h1>
+            <p>Calculate your monthly mortgage payments</p>
+        </header>
+
+        <main class="calculator">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="homePrice">Home Price</label>
+                    <div class="input-wrapper">
+                        <span class="currency">$</span>
+                        <input type="number" id="homePrice" placeholder="500,000" min="0" step="1000">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="downPayment">Down Payment</label>
+                    <div class="input-wrapper">
+                        <span class="currency">$</span>
+                        <input type="number" id="downPayment" placeholder="100,000" min="0" step="1000">
+                    </div>
+                    <div class="down-payment-options">
+                        <button type="button" class="percentage-btn" data-percentage="5">5%</button>
+                        <button type="button" class="percentage-btn" data-percentage="10">10%</button>
+                        <button type="button" class="percentage-btn" data-percentage="20">20%</button>
+                        <button type="button" class="percentage-btn" data-percentage="25">25%</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="loanTerm">Loan Term</label>
+                    <select id="loanTerm">
+                        <option value="15">15 years</option>
+                        <option value="20">20 years</option>
+                        <option value="25">25 years</option>
+                        <option value="30" selected>30 years</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="interestRate">Interest Rate</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="interestRate" placeholder="6.5" min="0" max="30" step="0.01">
+                        <span class="percentage">%</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="propertyTax">Property Tax (Annual)</label>
+                    <div class="input-wrapper">
+                        <span class="currency">$</span>
+                        <input type="number" id="propertyTax" placeholder="6,000" min="0" step="100">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="homeInsurance">Home Insurance (Annual)</label>
+                    <div class="input-wrapper">
+                        <span class="currency">$</span>
+                        <input type="number" id="homeInsurance" placeholder="1,200" min="0" step="100">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="pmi">PMI (Private Mortgage Insurance)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="pmi" placeholder="0.5" min="0" max="5" step="0.01">
+                        <span class="percentage">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="result-card primary">
+                    <h3>Monthly Payment</h3>
+                    <div class="result-amount" id="monthlyPayment">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h4>Principal & Interest</h4>
+                        <div class="result-amount" id="principalInterest">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Property Tax</h4>
+                        <div class="result-amount" id="monthlyTax">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Insurance</h4>
+                        <div class="result-amount" id="monthlyInsurance">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>PMI</h4>
+                        <div class="result-amount" id="monthlyPMI">$0</div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <div class="summary-item">
+                        <span>Total Interest Paid</span>
+                        <span id="totalInterest">$0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Amount Paid</span>
+                        <span id="totalAmount">$0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Loan Amount</span>
+                        <span id="loanAmount">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" id="calculateBtn" class="btn-primary">Calculate</button>
+                <button type="button" id="resetBtn" class="btn-secondary">Reset</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
